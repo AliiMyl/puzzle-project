@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Add</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Add new puzzle</h1>
+<form th:object="${puzzle}" th:action="@{/savepuzzle}" action="#" method="post">
+
+<p>Title: <input type="text" th:field="${puzzle.title}"/></p>
+<p>Manufacturer: <input type="text" th:field="${puzzle.manufacturer}"/></p>
+<p>Pieces: <input type="text" th:field="${puzzle.pieceNumber}"/></p>
+<p>Price: <input type="text" th:field="${puzzle.price}"/></p>
+<p>Difficulty Level: <input type="text" th:field="${puzzle.difficultyLevel}"/></p>
+
+<input type="submit" value="Save"></input>
+</form>
+</body>
+</html>

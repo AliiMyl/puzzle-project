@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Add</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Profiles</h1>	
+<form th:object="${maker}" th:action="@{/saveprofile}" action="#" method="post">
+
+<p>Firstname: <input type="text" th:field="${maker.firstname}"/></p>
+<p>Lastname: <input type="text" th:field="${maker.lastname}"/></p>
+<p>Age: <input type="text" th:field="${maker.age}"/></p>
+
+<input type="submit" value="Save"></input>
+</form>
+</body>
+</html>

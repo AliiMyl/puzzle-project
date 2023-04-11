@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Completions</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>list of puzzle completions</h2>
+	<table class="table table-striped">
+	<tr>
+		<th>Puzzle</th>
+		<th>Starting date</th>
+		<th>Finish date</th>
+		<th>Build time</th>
+		<th>By</th>
+	</tr>
+	<tr th:each="completion : ${completions}">
+		<td th:text="${completion.puzzle.title}"></td>
+		<td placeholder="dd.mm.yyyy" type="date" th:text="${completion.start}"></td>
+		<td th:text="${completion.finish}"></td>
+		<td th:text="${completion.buildTime}"></td>
+		<td th:text="${completion.maker.firstname}"></td>
+		<td> <button class ="btn btn-danger"><a th:href="@{/delete/{id}(id=${completion.comId})}">Delete</a></button>
+		
+	</tr>
+	</table>
+	<button class="btn btn-success"><a style="color: black" href="/addcompletion">Add completion</a></button>
+	<button><a href="/puzzlelist">List of puzzles</a></button>
+</body>
+</html>

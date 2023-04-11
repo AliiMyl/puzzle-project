@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Completions</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	
+	<table class="table table-striped">
+	<tr>
+		<th>Firstname</th>
+		<th>Lastname</th>
+		<th>Age</th>
+	</tr>
+	<tr th:each="maker : ${makers}">
+		<td th:text="${maker.firstname}"></td>
+		<td th:text="${maker.lastname}"></td>
+		<td th:text="${maker.age}"></td>
+	</tr>
+	</table>
+	<button class="btn btn-success"><a style="color: black" href="/newprofile">Add maker</a></button>
+	<button><a href="/puzzlelist">List of puzzles</a></button>
+</body>
+</html>

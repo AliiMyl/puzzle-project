@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Add</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Add new completion to a puzzle</h1>
+<form th:object="${completion}" th:action="@{/savecompletion}" action="#" method="post">
+
+	<div style="clear: both; display: block; height: 10px;"></div>
+	<label for="deplist">Puzzle</label>	
+	<select id="deplist" th:field="*{puzzle}" class="form-control">
+	<option th:each="puzzle: ${puzzles}" th:value="${puzzle.ppId}" th:text="${puzzle.title}">
+	</option>
+	</select>
+	<div style="clear: both; display: block; height: 10px;"></div>
+	
+<p>Start date: <input placeholder="dd.mm.yyyy" type="date" th:field="${completion.start}"/></p>
+<p>Finish date: <input placeholder="dd.mm.yyyy" type="date" th:field="${completion.finish}"/></p>
+<p>Build time: <input type="text" th:field="${completion.buildTime}"/> Hours</p>
+
+	<div style="clear: both; display: block; height: 10px;"></div>
+	<label for="deplist">Maker</label>	
+	<select id="deplist" th:field="*{maker}" class="form-control">
+	<option th:each="maker: ${makers}" th:value="${maker.makerId}" th:text="${maker.firstname}">
+	</option>
+	</select>
+	<div style="clear: both; display: block; height: 10px;"></div>
+
+<input type="submit" value="Save"></input>
+</form>
+</body>
+</html>

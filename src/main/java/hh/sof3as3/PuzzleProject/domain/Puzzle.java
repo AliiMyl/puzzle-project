@@ -14,7 +14,7 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Puzzle {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long ppId;
@@ -23,16 +23,18 @@ public class Puzzle {
 	private int pieceNumber;
 	private double price;
 	private int difficultyLevel;
-	// Completion 
-	
-	//Puzzle 1--* Completion
-/*	@OneToMany(cascade = CascadeType.ALL, mappedBy = ("puzzle"))
+	// Completion
+
+	// Puzzle 1--* Completion
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "puzzle")
 	@JsonIgnoreProperties("puzzles")
-	@JoinColumn(name = "comId") //FK
-	private List<Completion> completions; */
-	
-	public Puzzle() {}
-	//constructors	
+	// @JoinColumn(name = "comId") //FK
+	private List<Completion> completions;
+
+	public Puzzle() {
+	}
+
+	// constructors
 	public Puzzle(String title, String manufacturer, int pieceNumber, double price, int difficultyLevel) {
 		super();
 		this.title = title;
@@ -41,7 +43,8 @@ public class Puzzle {
 		this.price = price;
 		this.difficultyLevel = difficultyLevel;
 	}
-	//getters and setters
+
+	// getters and setters
 	public Long getPpId() {
 		return ppId;
 	}
@@ -90,13 +93,12 @@ public class Puzzle {
 		this.difficultyLevel = difficultyLevel;
 	}
 
-	/*public List<Completion> getCompletions() {
-		return completions;
-	}
-	public void setCompletions(List<Completion> completions) {
-		this.completions = completions;
-	} */
-	//toString
+	/*
+	 * public List<Completion> getCompletions() { return completions; } public void
+	 * setCompletions(List<Completion> completions) { this.completions =
+	 * completions; }
+	 */
+	// toString
 	@Override
 	public String toString() {
 		return "Puzzle [ppId=" + ppId + ", title=" + title + ", manufacturer=" + manufacturer + ", pieceNumber="

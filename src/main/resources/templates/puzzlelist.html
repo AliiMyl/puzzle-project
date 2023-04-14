@@ -6,7 +6,15 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<h1>Puzzlelist</h2>
+<div class="container">
+	<div class="col-md-4">
+	<h1>Puzzlelist</h1>
+	</div>
+	<div class="col-md-4" style="padding: 20px 0">
+	<form th:action="@{/logout}" method="post">
+	<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+	</form>
+	</div>
 	<table class="table table-striped">
 	<tr>
 		<th>Title</th>
@@ -28,5 +36,6 @@
 	<button class="btn btn-success"><a style="color: black" href="/addpuzzle">Add Puzzle</a></button>
 	<button class="btn btn-success"><a style="color: black" href="/listprofiles">Makers</a></button>
 	<button><a href="/completionlist">List of completions</a></button>
+</div>
 </body>
 </html>

@@ -7,25 +7,27 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Maker {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long makerId;
 	private String firstname;
 	private String lastname;
 	private int age;
-	//completions
-	
-	public Maker() {}
-	//constructors
+	// completions
+
+	public Maker() {
+	}
+
+	// constructors
 	public Maker(String firstname, String lastname, int age) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.age = age;
 	}
-	
-	//getters and setters
+
+	// getters and setters
 	public Long getMakerId() {
 		return makerId;
 	}
@@ -57,12 +59,12 @@ public class Maker {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
-	//toString
+
+	// toString
 	@Override
 	public String toString() {
-		return "Maker [makerId=" + makerId + ", firstname=" + firstname + ", lastname=" + lastname + ", age="
-				+ age + "]";
+		return "Maker [makerId=" + makerId + ", firstname=" + firstname + ", lastname=" + lastname + ", age=" + age
+				+ "]";
 	}
-	
+
 }

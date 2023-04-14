@@ -15,7 +15,7 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Completion {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long comId;
@@ -28,18 +28,18 @@ public class Completion {
 	// Completion *--1 Puzzle
 	@ManyToOne
 	@JsonIgnoreProperties("completions")
-	@JoinColumn(name = "ppId") //FK
+	@JoinColumn(name = "ppId") // FK
 	private Puzzle puzzle;
-	//puzzleMaker Maker
-	
+	// puzzleMaker Maker
+
 	@ManyToOne
 	@JsonIgnoreProperties("completions")
-	@JoinColumn(name="makerId") //FK
+	@JoinColumn(name = "makerId") // FK
 	private Maker maker;
-	
-	
-	//constructors
-	public Completion() {}
+
+	// constructors
+	public Completion() {
+	}
 
 	public Completion(Date start, Date finish, int buildTime, Puzzle puzzle, Maker maker) {
 		super();
@@ -50,7 +50,7 @@ public class Completion {
 		this.maker = maker;
 	}
 
-	//getters and setters
+	// getters and setters
 
 	public Long getComId() {
 		return comId;
@@ -99,13 +99,12 @@ public class Completion {
 	public void setMaker(Maker maker) {
 		this.maker = maker;
 	}
-	
-	
-	//toString
+
+	// toString
 	@Override
 	public String toString() {
 		return "Completion [comId=" + comId + ", start=" + start + ", finish=" + finish + ", buildTime=" + buildTime
 				+ ", puzzle=" + puzzle + ", maker=" + maker + "]";
 	}
-	
+
 }

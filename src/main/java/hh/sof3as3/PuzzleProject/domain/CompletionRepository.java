@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface CompletionRepository extends CrudRepository <Completion, Long>{
-	
+public interface CompletionRepository extends CrudRepository<Completion, Long> {
+
 	List<Completion> findByBuildTime(int buildTime);
 }

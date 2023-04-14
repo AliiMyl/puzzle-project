@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface PuzzleRepository extends CrudRepository <Puzzle, Long>{
+public interface PuzzleRepository extends CrudRepository<Puzzle, Long> {
 
 	List<Puzzle> findByTitle(String title);
 }

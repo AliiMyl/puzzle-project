@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 <head>
 	<title>Completions</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -20,7 +21,7 @@
 		<td th:text="${completion.finish}"></td>
 		<td th:text="${completion.buildTime}"></td>
 		<td th:text="${completion.maker.firstname}"></td>
-		<td> <button class ="btn btn-danger"><a th:href="@{/delete/{id}(id=${completion.comId})}">Delete</a></button>
+		<td sec:authorize="hasAuthority('ADMIN')"> <button class ="btn btn-danger"><a th:href="@{/delete/{id}(id=${completion.comId})}">Delete</a></button>
 		
 	</tr>
 	</table>

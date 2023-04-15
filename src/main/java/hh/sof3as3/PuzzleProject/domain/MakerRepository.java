@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface MakerRepository extends CrudRepository<Maker, Long> {
 	List<Maker> findByFirstname(String firstname);
+	List<Maker> findByLastname(String lastname);
 }

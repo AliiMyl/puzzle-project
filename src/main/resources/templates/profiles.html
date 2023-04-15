@@ -1,26 +1,67 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
-<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
 <head>
-	<title>Completions</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Completions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	
-	<table class="table table-striped">
-	<tr>
-		<th>Firstname</th>
-		<th>Lastname</th>
-		<th>Age</th>
-	</tr>
-	<tr th:each="maker : ${makers}">
-		<td th:text="${maker.firstname}"></td>
-		<td th:text="${maker.lastname}"></td>
-		<td th:text="${maker.age}"></td>
-		<td sec:authorize="hasAuthority('ADMIN')"> <button class ="btn btn-danger"><a th:href="@{/delete/{id}(id=${maker.makerId})}">Delete</a></button>
-	</tr>
+	<div class="col-md-4">
+		<h1 style="text-align: center">List of Makers</h1>
+	</div>
+	<table
+		style="margin-left: auto; margin-right: auto; text-align: center">
+		<tr>
+			<th>Firstname</th>
+			<th>Lastname</th>
+			<th>Age</th>
+		</tr>
+		<tr th:each="maker : ${makers}">
+			<td th:text="${maker.firstname}"></td>
+			<td th:text="${maker.lastname}"></td>
+			<td th:text="${maker.age}"></td>
+		</tr>
 	</table>
-	<button class="btn btn-success"><a style="color: black" href="/newprofile">Add maker</a></button>
-	<button><a href="/puzzlelist">List of puzzles</a></button>
+	<footer>
+		<button class="button button1">
+			<a style="color: black" href="/newprofile">Add maker</a>
+		</button>
+		<button class="button button2">
+			<a href="/puzzlelist">List of puzzles</a>
+		</button>
+	</footer>
+	<style>
+footer {
+	padding: 10px;
+	text-align: center;
+	color: black;
+}
+
+.button {
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 13px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.button1 {
+	background-color: #4CAF50;
+	color: black;
+	border: 3px solid black;
+}
+
+.button2 {
+	background-color: #80ccff;
+	color: black;
+	border: 3px solid black;
+}
+</style>
 </body>
 </html>

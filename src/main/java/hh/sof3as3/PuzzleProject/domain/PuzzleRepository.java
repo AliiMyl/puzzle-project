@@ -7,4 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface PuzzleRepository extends CrudRepository<Puzzle, Long> {
 
 	List<Puzzle> findByTitle(String title);
+	List<Puzzle> findByPieceNumber(int pieceNumber);
 }

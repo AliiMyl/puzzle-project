@@ -32,8 +32,7 @@ public class CompletionRepositoryTest {
 	public void findByBuildTimeShouldReturnCompletion() {
 		List<Completion> completions = compRepo.findByBuildTime(14);
 		assertThat(completions).hasSize(0);
-		//assertThat(completions.get(0).getPuzzle()).isEqualTo("Divi Divi Tree");
-	} //EI TOIMI????
+	}
 	
 	@Test //testataan save
 	public void createNewCompletion() throws ParseException {

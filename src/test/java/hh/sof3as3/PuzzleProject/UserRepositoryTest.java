@@ -21,18 +21,12 @@ public class UserRepositoryTest {
 	@Autowired
 	private UserRepository userRepo;
 	
-	@Test //tehdään uusi user
+	@Test //testataan uuden käyttäjän teko
 	public void createNewUser() {
 		User user = new User("Tester", "test", "test@gmail.com", "TESTER");
 		userRepo.save(user);
 		assertThat(user.getId()).isNotNull();
 	}
-	
-/*	@Test //testataan haku
-	public void FindByUsernameShouldReturnUser() {
-		List<User> users = userRepo.findByUsername("admin");
-		assertThat(users.get(0).getEmail()).isEqualTo("user@gmail.com");
-	} */
 	
 	@Test //testataan poisto
 	@Rollback(false)

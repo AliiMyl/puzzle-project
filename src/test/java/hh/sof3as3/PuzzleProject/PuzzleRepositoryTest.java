@@ -20,10 +20,15 @@ public class PuzzleRepositoryTest {
 	@Autowired
 	private PuzzleRepository puzzRepo;
 	
-	@Test //testataan haku
+	@Test //testataan haku by Title
 	public void FindByTitleShouldReturnPuzzle() {
 		List<Puzzle> puzzles = puzzRepo.findByTitle("Field of Flowers");
 		assertThat(puzzles.get(0).getManufacturer()).isEqualTo("TACTIC");
+	}
+	
+	@Test // haku palamäärän perusteella
+	public void FindByPieceNumber() {
+		List<Puzzle> puzzles = puzzRepo.findByPieceNumber(1000);
 	}
 	
 	@Test //testataan lisäys

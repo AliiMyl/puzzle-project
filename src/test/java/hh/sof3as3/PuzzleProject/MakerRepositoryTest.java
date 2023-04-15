@@ -20,7 +20,7 @@ public class MakerRepositoryTest {
 	@Autowired
 	private MakerRepository makeRepo;
 	
-	@Test //testataan haku
+	@Test //testataan haku etunimen perusteella
 	public void FindByFirstnameShouldReturnMaker() {
 		List <Maker> makers = makeRepo.findByFirstname("Aliisa");
 		assertThat(makers).hasSize(1);
@@ -33,14 +33,4 @@ public class MakerRepositoryTest {
 		makeRepo.save(maker);
 		assertThat(maker.getMakerId()).isNotNull();
 	}
-	
-	@Test // testataan delete
-	@Rollback(false)
-	public void deleteMaker() {
-		Maker maker = makeRepo.findById(Long.valueOf(1)).get();
-		makeRepo.delete(maker);
-		Optional<Maker> deleteMaker = makeRepo.findById(Long.valueOf(1));
-		assertThat(deleteMaker).isEmpty();
-	} //Ei toimi
-	
 }

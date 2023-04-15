@@ -51,7 +51,6 @@ public class PuzzleProjectApplication {
 					"user@gmail.com", "USER");
 			User user2 = new User("admin", "$2a$10$8DRFlVd10n1YcHXTL5xNb.27bQh2WjINrsiaWVMv3ghuZdDI/KnlK",
 					"admin@gmail.com", "ADMIN");
-			// password USER, password ADMIN
 			userRepo.save(user1);
 			userRepo.save(user2);
 
